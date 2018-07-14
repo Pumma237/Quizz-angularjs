@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="serieApp">
+<head>
+	<title>Quizz</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/serie.css">
+</head>
+<body>
+	<div ng-controller="serieCtrl">
+		<div ng-show="serie" class="question" id="texte">
+			<h1 id="theme" ng-model="currentTheme">QuiQuizz - Theme : {{currentTheme}}</h1>
+			<h2 id="number" ng-model="indiceCurrentQ">Question n°{{indiceCurrentQ}}</h2>
+
+			<div class="ask">
+				<p ng-init="initialiserSerie()" ng-model="currentQ">{{currentQ}}</p>
+			</div>
+
+			<div ng-show="showImage" class="serieImage">
+				<img ng-model="imgSrc" src="{{imgSrc}}">
+			</div>
+
+			<!-- Audio
+			<div ng-show="showAudio" class="serieAudio">
+				<audio controls ng-model="audioSrc" src="{{audioSrc}}"  autoplay="autoplay">
+					<source type="audio/mpeg">
+				</audio>
+			</div>
+			Audio -->
+
+
+			<form name="myForm" ng-submit="nextQuestion(answer)">
+				<label class="container">
+					{{currentR[0].label}}
+					<input type="radio" name="urAnswer" ng-model="answer" value="{{currentR[0].position}}">
+				    <span class="checkmark"></span>
+			    </label>
+				<label class="container">
+					{{currentR[1].label}}
+					<input type="radio" name="urAnswer" ng-model="answer" value="{{currentR[1].position}}">
+				    <span class="checkmark"></span>
+			    </label>
+				<label class="container">
+					{{currentR[2].label}}
+					<input type="radio" name="urAnswer" ng-model="answer" value="{{currentR[2].position}}">
+				    <span class="checkmark"></span>
+			    </label>
+				<label class="container">
+					{{currentR[3].label}}
+					<input type="radio" name="urAnswer" ng-model="answer" value="{{currentR[3].position}}">
+				    <span class="checkmark"></span>
+			    </label>
+			    <input type="submit" value="Valider !">
+			</form>
+		</div>
+
+		<div style="width: 40%; margin-left:30%; margin-right: 30%; margin-top: 10%;" ng-show="resultat">
+			<h3 style="text-transform: none;" ng-model="messageScore">{{messageScore}}</h3>
+			<h1 ng-model="score">Votre score {{score}} / 5</h1>
+			<a style="text-decoration: none;text-align: center;background-color: #4CAF50;padding: 1% 1%;margin-bottom: 1%;border-radius: 4px;cursor: pointer;color: #fff;display: block;text-align: center;font-family: monospace;" href="index.html">Retour à l'accueil</a>
+		</div>
+
+	</div>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/my.js"></script>
+	<script type="text/javascript" src="js/db.js"></script>
+</body>
+</html>

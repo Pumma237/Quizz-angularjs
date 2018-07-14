@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formulaire</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="js/my.js"></script>
+	<script type="text/javascript" src="js/db.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/my.css">
+</head>
+<body onload="openDb()">
+	<!-- QUESTION MUSIQUE + TEXTE -->
+	<h1>QuiQuizz</h1>
+	<div class="form" id="musicale" style="display: none;">
+		<form name="form-musicale">
+			<a href="index.html">Retour</a>
+			<h1>Ajout d'une question de type musicale</h1>
+			<label>Question ?</label>
+			<input type="text" name="q">
+			<label>Fichier musical</label>
+			<input onchange="readURLMusique(this)" type="file" accept="audio/mp3,audio/*" name="m">
+			<audio id="uploaded-audio" controls>
+			  <source  type="audio/mpeg">
+			</audio>
+			<label>Réponse 1</label>
+			<input type="text" name="r1">
+			<label>Réponse 2</label>
+			<input type="text" name="r2">
+			<label>Réponse 3</label>
+			<input type="text" name="r3">
+			<label>Réponse 4</label>
+			<input type="text" name="r4">
+			<label>Numéro de la bonne réponse</label>
+			<select name="a">
+				<option value="r1">Réponse 1</option>
+				<option value="r2">Réponse 2</option>
+				<option value="r3">Réponse 3</option>
+				<option value="r4">Réponse 4</option>
+			</select>
+			<label>Thème ?</label>
+			<select name="t">
+				<option value="1">Géographie</option>
+				<option value="2">Divertissement</option>
+				<option value="3">Histoire</option>
+				<option value="4">Art et Littérature</option>
+				<option value="5">Science et Nature</option>
+				<option value="6">Sport & Loisirs</option>
+			</select>
+			<a onclick="addQuestion(sessionStorage.type)">Ajouter</a>
+		</form>
+	</div>
+
+	<!-- QUESTION TEXTE -->
+	<div class="form" id="texte" style="display: none;">
+		<a href="index.html">Retour</a>
+		<h1>Ajout d'une question de type texte</h1>
+		<form name="form-texte">
+			<label>Question ?</label>
+			<input name="q" type="text">
+			<label>Réponse 1</label>
+			<input type="text" name="r1">
+			<label>Réponse 2</label>
+			<input type="text" name="r2">
+			<label>Réponse 3</label>
+			<input type="text" name="r3">
+			<label>Réponse 4</label>
+			<input type="text" name="r4">
+			<label>Numéro de la bonne réponse</label>
+			<select name="a">
+				<option value="r1">Réponse 1</option>
+				<option value="r2">Réponse 2</option>
+				<option value="r3">Réponse 3</option>
+				<option value="r4">Réponse 4</option>
+			</select>
+			<label>Thème ?</label>
+			<select name="t">
+				<option value="1">Géographie</option>
+				<option value="2">Divertissement</option>
+				<option value="3">Histoire</option>
+				<option value="4">Art et Littérature</option>
+				<option value="5">Science et Nature</option>
+				<option value="6">Sport & Loisirs</option>
+			</select>
+			<a  onclick="addQuestion(sessionStorage.type)">Ajouter</a>
+		</form>
+	</div>
+
+	<!-- QUESTION IMAGE + TEXTE -->
+	<div class="form" id="image" style="display: none;">
+		<a href="index.html">Retour</a>
+		<h1>Ajout d'une question de type image</h1>
+		<form name="form-image">
+			<label>Question ?</label>
+			<input name="q" type="text">
+			<label>Fichier image</label>
+			<input onchange="readURLImage(this)" type="file" name="i">
+			<img id="uploaded-image">
+			<label>Réponse 1</label>
+			<input type="text" name="r1">
+			<label>Réponse 2</label>
+			<input type="text" name="r2">
+			<label>Réponse 3</label>
+			<input type="text" name="r3">
+			<label>Réponse 4</label>
+			<input type="text" name="r4">
+			<label>Numéro de la bonne réponse</label>
+			<select name="a">
+				<option value="r1">Réponse 1</option>
+				<option value="r2">Réponse 2</option>
+				<option value="r3">Réponse 3</option>
+				<option value="r4">Réponse 4</option>
+			</select>
+			<label>Thème ?</label>
+			<select name="t">
+				<option value="1">Géographie</option>
+				<option value="2">Divertissement</option>
+				<option value="3">Histoire</option>
+				<option value="4">Art et Littérature</option>
+				<option value="5">Science et Nature</option>
+				<option value="6">Sport & Loisirs</option>
+			</select>
+			<a  onclick="addQuestion(sessionStorage.type)">Ajouter</a>
+		</form>
+	</div>
+
+	<!-- QUESTION TRI -->
+	<div class="form" id="tri" style="display: none;">
+		<a href="index.html">Retour</a>
+		<h1>Ajout d'une question de type tri</h1>
+		<form name="form-tri">
+			<label>Question ?</label>
+			<input name="q" type="text">
+			<img id="uploaded-image">
+			<label>Réponse 1</label>
+			<input onchange="addTri(this)" type="text" name="r1">
+			<label>Réponse 2</label>
+			<input onchange="addTri(this)" type="text" name="r2">
+			<label>Réponse 3</label>
+			<input onchange="addTri(this)" type="text" name="r3">
+			<label>Réponse 4</label>
+			<input onchange="addTri(this)" type="text" name="r4">
+			<div id="ordre"></div>
+			<label>Classer les réponses</label>
+			<div class="zone" id="pos1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div class="zone" id="pos2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div class="zone" id="pos3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<div class="zone" id="pos4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+			<label>Thème ?</label>
+			<select name="t">
+				<option value="1">Géographie</option>
+				<option value="2">Histoire</option>
+				<option value="3">Divertissement</option>
+				<option value="4">Art et Littérature</option>
+				<option value="5">Science et Nature</option>
+				<option value="6">Sport & Loisirs</option>
+			</select>
+			<a onclick="addQuestion(sessionStorage.type)">Ajouter</a>
+		</form>		
+	</div>
+	<script type="text/javascript">
+		switch(sessionStorage.type) {
+			case(sessionStorage.type) :
+				var div = document.getElementById(sessionStorage.type);
+				div.style.display = "block";
+			break;
+		}
+	</script>
+</body>
+</html>

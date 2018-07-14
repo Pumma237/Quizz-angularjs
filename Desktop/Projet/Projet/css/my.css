@@ -1,0 +1,242 @@
+h1, h2, h3 {
+	text-transform: uppercase;
+	border:1px solid #000;
+	text-align:center;
+    font-family: monospace;
+    margin-bottom: 1%;
+    margin-top: 0%;
+    background-color: #88458d;
+    color: #fff;
+    padding: 1%;
+}
+
+h4 {
+    text-align:center;
+    font-family: monospace;
+    margin-bottom: 1%;
+    margin-top: 1%;   
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
+    background-color: #000000;
+    padding: 1% 0;
+    margin-bottom: 1%;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    display: block;
+    text-align: center;
+    font-family: monospace;
+}
+
+.result {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+.zone {
+    width: 100%;
+    height: 50px;
+    border:1px dashed #000;
+    margin-top: 1%;
+}
+
+.draggable {
+    padding: 1%;
+    background-color: #d5848454;
+    text-align: center;
+    font-family: monospace;
+}
+
+.addQuestion {
+	width: 40%;
+    margin-top: 5%;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-bottom: 3%;
+}
+
+.launchQuizz {
+	width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.form, .question {
+    margin-top: 5%;
+	margin-left: 30%;
+	margin-right: 30%;
+	float: left;
+}
+
+select {
+    text-align-last: center;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+option {
+    font-family: monospace;
+    font-weight: bold;
+}
+
+label  {
+    font-family: fantasy;
+    text-align: center;
+    display: block;
+}
+
+/* Formulaire */
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 0;
+}
+
+input[type=submit], button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+input[type=file] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#musicale audio {
+    width: 100%;
+    display: block;
+}
+
+[draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+  cursor: all-scroll;
+}
+
+.launchQuizz a {
+    text-decoration: none;
+    width: 100%;
+    background-color: #fff;
+    padding: 1% 0;
+    margin-bottom: 1%;
+    cursor: pointer;
+    color: #000;
+    display: block;
+    text-align: center;
+    font-family: monospace;
+    border:1px solid black;
+}
+
+.launchQuizz a:hover {
+    background-color: #88458d42;
+    border-left:5px solid #000;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* The container */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quizz</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="js/my.js"></script>
+	<script type="text/javascript" src="js/db.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/my.css">
+</head>
+<body onload="openDb()">
+	
+	<div class="addQuestion">
+		<h1>QuiQuizz</h1>
+		<h3>Ajouter une question</h3>
+		<form name="form1">
+			<select id="selectType">
+				<option value="musicale">Reconnaître une musique (fichier audio)</option>
+				<option value="texte">Question de type texte</option>
+				<option value="image">Question avec une image et un texte</option>
+				<option value="tri">Question avec un tri à faire sur les réponses</option>
+			</select>
+			<!-- button onclick="selectQuestionType()">Accéder au formulaire</button -->
+			<a href="form.html" onclick="selectQuestionType()">Accéder au formulaire</a>
+		</form>
+	</div>
+	<div class="launchQuizz">
+		<h3>Lancer une série</h3>
+		<a onclick="lancerSerie(1)" href="#">Géographie</a>
+		<a onclick="lancerSerie(2)" href="#">Divertissement</a>
+		<a onclick="lancerSerie(3)" href="#">Histoire</a>
+		<a onclick="lancerSerie(4)" href="#">Art et Littérature</a>
+		<a onclick="lancerSerie(5)" href="#">Science et Nature</a>
+		<a onclick="lancerSerie(6)" href="#">Sport & Loisirs</a>
+	</div>
+</body>
+</html>
